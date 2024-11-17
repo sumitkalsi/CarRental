@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frag::head}">
+</head>
+
+    <link rel="stylesheet" th:href="@{/styles/form.css}"/>
+  
+
+<body>
+   <div th:replace="~{frag::nav}"></div>
+
+       <div  class="form" id="form">
+        <form th:action="@{/rental/addrental}" th:object="${rental}" method="post" >
+            Make Your Trip
+            <input type="text" placeholder="name" th:field="*{rentalname}">
+            <input type="text" placeholder="phone" th:field="*{phone}">
+            <input type="date" placeholder="pickup" th:field="*{startdate}">
+            <input type="date" placeholder="drop-off" th:field="*{enddate}">
+            
+            
+            <button type="submit" class="button-56">Rent a car now</button>
+        </form>
+  </div> 
+        <script src="/js/home.js"></script>
+       
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{frag::head}"></head>
+  <link rel="stylesheet" th:href="@{/styles/cars.css?version=51}">
+
+<body>
+   
+ <div th:replace="~{frag::nav}"></div>
+   
+       <div class="con">
+        <h1 class="cursor typewriter-animation">pick your car</h1>
+
+
+       </div> 
+
+     <div class="form">
+             <div class="cards" th:each="cars : ${cars}">
+                <div class="image"> <img th:src="@{/images/{img}(img=${cars.image})}" alt=""></div>
+                <div class="info">  
+                    <h2 th:text="${cars.brand}"> </h2>
+                    <h2 th:text="${cars.prize}"></h2>
+                    
+                </div>
+                <div class="btns">
+                   <a th:href="@{/rental/addrental/{id}(id=${cars.id})}">  <button> book now</button></a>
+                    <a th:href="@{/car/get/{id}(id=${cars.id})}">  <button class="btn"> Details </button></a>
+                   
+                </div>
+               
+             </div>
+
+           
+             
+     </div>
+
+
+    <script src="/js/home.js"></script>
+</body>
+</html>
